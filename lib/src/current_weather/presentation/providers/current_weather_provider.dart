@@ -6,13 +6,11 @@ part 'current_weather_provider.g.dart';
 
 @riverpod
 class CurrentWeather extends _$CurrentWeather {
-  late Position position;
+  late Position _position;
   @override
   build() async {
-    position = await ref.watch(currentPositionProvider.future);
+    _position = await ref.watch(currentPositionProvider.future);
   }
 
-  _getCurrentWeather() {
-
-  }
+  _getCurrentWeather(Position position) {}
 }
