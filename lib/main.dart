@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,10 +22,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Minima Weather',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: FlexThemeData.light(
+          scheme: FlexScheme.damask,
+          useMaterial3: true,
+          fontFamily: "BebasNeue"),
+      darkTheme: FlexThemeData.dark(
+          scheme: FlexScheme.bigStone,
+          useMaterial3: true,
+          fontFamily: "BebasNeue"),
+      themeMode: ThemeMode.system,
       home: const CurrentWeatherPage(),
     );
   }
