@@ -8,11 +8,13 @@ part of 'current_weather.dart';
 
 _$WeatherImpl _$$WeatherImplFromJson(Map<String, dynamic> json) =>
     _$WeatherImpl(
-      lat: (json['lat'] as num).toDouble(),
-      lon: (json['lon'] as num).toDouble(),
-      timezone: json['timezone'] as String,
-      timezoneOffset: (json['timezoneOffset'] as num).toInt(),
-      current: Current.fromJson(json['current'] as Map<String, dynamic>),
+      lat: (json['lat'] as num?)?.toDouble(),
+      lon: (json['lon'] as num?)?.toDouble(),
+      timezone: json['timezone'] as String?,
+      timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
+      current: json['current'] == null
+          ? null
+          : Current.fromJson(json['current'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$WeatherImplToJson(_$WeatherImpl instance) =>
@@ -26,22 +28,22 @@ Map<String, dynamic> _$$WeatherImplToJson(_$WeatherImpl instance) =>
 
 _$CurrentImpl _$$CurrentImplFromJson(Map<String, dynamic> json) =>
     _$CurrentImpl(
-      dt: (json['dt'] as num).toInt(),
-      sunrise: (json['sunrise'] as num).toInt(),
-      sunset: (json['sunset'] as num).toInt(),
-      temp: (json['temp'] as num).toDouble(),
-      feelsLike: (json['feelsLike'] as num).toDouble(),
-      pressure: (json['pressure'] as num).toInt(),
-      humidity: (json['humidity'] as num).toInt(),
-      dewPoint: (json['dewPoint'] as num).toDouble(),
-      uvi: (json['uvi'] as num).toDouble(),
-      clouds: (json['clouds'] as num).toInt(),
-      visibility: (json['visibility'] as num).toInt(),
-      windSpeed: (json['windSpeed'] as num).toDouble(),
-      windDeg: (json['windDeg'] as num).toInt(),
-      windGust: (json['windGust'] as num).toDouble(),
-      weather: (json['weather'] as List<dynamic>)
-          .map((e) => WeatherElement.fromJson(e as Map<String, dynamic>))
+      dt: (json['dt'] as num?)?.toInt(),
+      sunrise: (json['sunrise'] as num?)?.toInt(),
+      sunset: (json['sunset'] as num?)?.toInt(),
+      temp: (json['temp'] as num?)?.toDouble(),
+      feelsLike: (json['feelsLike'] as num?)?.toDouble(),
+      pressure: (json['pressure'] as num?)?.toInt(),
+      humidity: (json['humidity'] as num?)?.toInt(),
+      dewPoint: (json['dewPoint'] as num?)?.toDouble(),
+      uvi: (json['uvi'] as num?)?.toDouble(),
+      clouds: (json['clouds'] as num?)?.toInt(),
+      visibility: (json['visibility'] as num?)?.toInt(),
+      windSpeed: (json['windSpeed'] as num?)?.toDouble(),
+      windDeg: (json['windDeg'] as num?)?.toInt(),
+      windGust: (json['windGust'] as num?)?.toDouble(),
+      weather: (json['weather'] as List<dynamic>?)
+          ?.map((e) => WeatherElement.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -66,10 +68,10 @@ Map<String, dynamic> _$$CurrentImplToJson(_$CurrentImpl instance) =>
 
 _$WeatherElementImpl _$$WeatherElementImplFromJson(Map<String, dynamic> json) =>
     _$WeatherElementImpl(
-      id: (json['id'] as num).toInt(),
-      main: json['main'] as String,
-      description: json['description'] as String,
-      icon: json['icon'] as String,
+      id: (json['id'] as num?)?.toInt(),
+      main: json['main'] as String?,
+      description: json['description'] as String?,
+      icon: json['icon'] as String?,
     );
 
 Map<String, dynamic> _$$WeatherElementImplToJson(

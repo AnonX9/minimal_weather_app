@@ -20,11 +20,11 @@ Weather _$WeatherFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Weather {
-  double get lat => throw _privateConstructorUsedError;
-  double get lon => throw _privateConstructorUsedError;
-  String get timezone => throw _privateConstructorUsedError;
-  int get timezoneOffset => throw _privateConstructorUsedError;
-  Current get current => throw _privateConstructorUsedError;
+  double? get lat => throw _privateConstructorUsedError;
+  double? get lon => throw _privateConstructorUsedError;
+  String? get timezone => throw _privateConstructorUsedError;
+  int? get timezoneOffset => throw _privateConstructorUsedError;
+  Current? get current => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,13 +37,13 @@ abstract class $WeatherCopyWith<$Res> {
       _$WeatherCopyWithImpl<$Res, Weather>;
   @useResult
   $Res call(
-      {double lat,
-      double lon,
-      String timezone,
-      int timezoneOffset,
-      Current current});
+      {double? lat,
+      double? lon,
+      String? timezone,
+      int? timezoneOffset,
+      Current? current});
 
-  $CurrentCopyWith<$Res> get current;
+  $CurrentCopyWith<$Res>? get current;
 }
 
 /// @nodoc
@@ -59,40 +59,44 @@ class _$WeatherCopyWithImpl<$Res, $Val extends Weather>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lat = null,
-    Object? lon = null,
-    Object? timezone = null,
-    Object? timezoneOffset = null,
-    Object? current = null,
+    Object? lat = freezed,
+    Object? lon = freezed,
+    Object? timezone = freezed,
+    Object? timezoneOffset = freezed,
+    Object? current = freezed,
   }) {
     return _then(_value.copyWith(
-      lat: null == lat
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lon: null == lon
+              as double?,
+      lon: freezed == lon
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
-              as double,
-      timezone: null == timezone
+              as double?,
+      timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
-              as String,
-      timezoneOffset: null == timezoneOffset
+              as String?,
+      timezoneOffset: freezed == timezoneOffset
           ? _value.timezoneOffset
           : timezoneOffset // ignore: cast_nullable_to_non_nullable
-              as int,
-      current: null == current
+              as int?,
+      current: freezed == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
-              as Current,
+              as Current?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CurrentCopyWith<$Res> get current {
-    return $CurrentCopyWith<$Res>(_value.current, (value) {
+  $CurrentCopyWith<$Res>? get current {
+    if (_value.current == null) {
+      return null;
+    }
+
+    return $CurrentCopyWith<$Res>(_value.current!, (value) {
       return _then(_value.copyWith(current: value) as $Val);
     });
   }
@@ -106,14 +110,14 @@ abstract class _$$WeatherImplCopyWith<$Res> implements $WeatherCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {double lat,
-      double lon,
-      String timezone,
-      int timezoneOffset,
-      Current current});
+      {double? lat,
+      double? lon,
+      String? timezone,
+      int? timezoneOffset,
+      Current? current});
 
   @override
-  $CurrentCopyWith<$Res> get current;
+  $CurrentCopyWith<$Res>? get current;
 }
 
 /// @nodoc
@@ -127,33 +131,33 @@ class __$$WeatherImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lat = null,
-    Object? lon = null,
-    Object? timezone = null,
-    Object? timezoneOffset = null,
-    Object? current = null,
+    Object? lat = freezed,
+    Object? lon = freezed,
+    Object? timezone = freezed,
+    Object? timezoneOffset = freezed,
+    Object? current = freezed,
   }) {
     return _then(_$WeatherImpl(
-      lat: null == lat
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lon: null == lon
+              as double?,
+      lon: freezed == lon
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
-              as double,
-      timezone: null == timezone
+              as double?,
+      timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
-              as String,
-      timezoneOffset: null == timezoneOffset
+              as String?,
+      timezoneOffset: freezed == timezoneOffset
           ? _value.timezoneOffset
           : timezoneOffset // ignore: cast_nullable_to_non_nullable
-              as int,
-      current: null == current
+              as int?,
+      current: freezed == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
-              as Current,
+              as Current?,
     ));
   }
 }
@@ -162,25 +166,21 @@ class __$$WeatherImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$WeatherImpl implements _Weather {
   const _$WeatherImpl(
-      {required this.lat,
-      required this.lon,
-      required this.timezone,
-      required this.timezoneOffset,
-      required this.current});
+      {this.lat, this.lon, this.timezone, this.timezoneOffset, this.current});
 
   factory _$WeatherImpl.fromJson(Map<String, dynamic> json) =>
       _$$WeatherImplFromJson(json);
 
   @override
-  final double lat;
+  final double? lat;
   @override
-  final double lon;
+  final double? lon;
   @override
-  final String timezone;
+  final String? timezone;
   @override
-  final int timezoneOffset;
+  final int? timezoneOffset;
   @override
-  final Current current;
+  final Current? current;
 
   @override
   String toString() {
@@ -222,34 +222,34 @@ class _$WeatherImpl implements _Weather {
   @override
   MinimalWeather toMinimalWeather() {
     return MinimalWeather(
-      lon: lon,
-      lat: lat,
-      cityName: timezone, // Assume timezone is the city name
-      temp: current.temp,
+      lon: lon!,
+      lat: lat!,
+      cityName: timezone!, // Assume timezone is the city name
+      temp: current!.temp!,
     );
   }
 }
 
 abstract class _Weather implements Weather {
   const factory _Weather(
-      {required final double lat,
-      required final double lon,
-      required final String timezone,
-      required final int timezoneOffset,
-      required final Current current}) = _$WeatherImpl;
+      {final double? lat,
+      final double? lon,
+      final String? timezone,
+      final int? timezoneOffset,
+      final Current? current}) = _$WeatherImpl;
 
   factory _Weather.fromJson(Map<String, dynamic> json) = _$WeatherImpl.fromJson;
 
   @override
-  double get lat;
+  double? get lat;
   @override
-  double get lon;
+  double? get lon;
   @override
-  String get timezone;
+  String? get timezone;
   @override
-  int get timezoneOffset;
+  int? get timezoneOffset;
   @override
-  Current get current;
+  Current? get current;
   @override
   @JsonKey(ignore: true)
   _$$WeatherImplCopyWith<_$WeatherImpl> get copyWith =>
@@ -262,21 +262,21 @@ Current _$CurrentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Current {
-  int get dt => throw _privateConstructorUsedError;
-  int get sunrise => throw _privateConstructorUsedError;
-  int get sunset => throw _privateConstructorUsedError;
-  double get temp => throw _privateConstructorUsedError;
-  double get feelsLike => throw _privateConstructorUsedError;
-  int get pressure => throw _privateConstructorUsedError;
-  int get humidity => throw _privateConstructorUsedError;
-  double get dewPoint => throw _privateConstructorUsedError;
-  double get uvi => throw _privateConstructorUsedError;
-  int get clouds => throw _privateConstructorUsedError;
-  int get visibility => throw _privateConstructorUsedError;
-  double get windSpeed => throw _privateConstructorUsedError;
-  int get windDeg => throw _privateConstructorUsedError;
-  double get windGust => throw _privateConstructorUsedError;
-  List<WeatherElement> get weather => throw _privateConstructorUsedError;
+  int? get dt => throw _privateConstructorUsedError;
+  int? get sunrise => throw _privateConstructorUsedError;
+  int? get sunset => throw _privateConstructorUsedError;
+  double? get temp => throw _privateConstructorUsedError;
+  double? get feelsLike => throw _privateConstructorUsedError;
+  int? get pressure => throw _privateConstructorUsedError;
+  int? get humidity => throw _privateConstructorUsedError;
+  double? get dewPoint => throw _privateConstructorUsedError;
+  double? get uvi => throw _privateConstructorUsedError;
+  int? get clouds => throw _privateConstructorUsedError;
+  int? get visibility => throw _privateConstructorUsedError;
+  double? get windSpeed => throw _privateConstructorUsedError;
+  int? get windDeg => throw _privateConstructorUsedError;
+  double? get windGust => throw _privateConstructorUsedError;
+  List<WeatherElement>? get weather => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -289,21 +289,21 @@ abstract class $CurrentCopyWith<$Res> {
       _$CurrentCopyWithImpl<$Res, Current>;
   @useResult
   $Res call(
-      {int dt,
-      int sunrise,
-      int sunset,
-      double temp,
-      double feelsLike,
-      int pressure,
-      int humidity,
-      double dewPoint,
-      double uvi,
-      int clouds,
-      int visibility,
-      double windSpeed,
-      int windDeg,
-      double windGust,
-      List<WeatherElement> weather});
+      {int? dt,
+      int? sunrise,
+      int? sunset,
+      double? temp,
+      double? feelsLike,
+      int? pressure,
+      int? humidity,
+      double? dewPoint,
+      double? uvi,
+      int? clouds,
+      int? visibility,
+      double? windSpeed,
+      int? windDeg,
+      double? windGust,
+      List<WeatherElement>? weather});
 }
 
 /// @nodoc
@@ -319,83 +319,83 @@ class _$CurrentCopyWithImpl<$Res, $Val extends Current>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dt = null,
-    Object? sunrise = null,
-    Object? sunset = null,
-    Object? temp = null,
-    Object? feelsLike = null,
-    Object? pressure = null,
-    Object? humidity = null,
-    Object? dewPoint = null,
-    Object? uvi = null,
-    Object? clouds = null,
-    Object? visibility = null,
-    Object? windSpeed = null,
-    Object? windDeg = null,
-    Object? windGust = null,
-    Object? weather = null,
+    Object? dt = freezed,
+    Object? sunrise = freezed,
+    Object? sunset = freezed,
+    Object? temp = freezed,
+    Object? feelsLike = freezed,
+    Object? pressure = freezed,
+    Object? humidity = freezed,
+    Object? dewPoint = freezed,
+    Object? uvi = freezed,
+    Object? clouds = freezed,
+    Object? visibility = freezed,
+    Object? windSpeed = freezed,
+    Object? windDeg = freezed,
+    Object? windGust = freezed,
+    Object? weather = freezed,
   }) {
     return _then(_value.copyWith(
-      dt: null == dt
+      dt: freezed == dt
           ? _value.dt
           : dt // ignore: cast_nullable_to_non_nullable
-              as int,
-      sunrise: null == sunrise
+              as int?,
+      sunrise: freezed == sunrise
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
-              as int,
-      sunset: null == sunset
+              as int?,
+      sunset: freezed == sunset
           ? _value.sunset
           : sunset // ignore: cast_nullable_to_non_nullable
-              as int,
-      temp: null == temp
+              as int?,
+      temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
-              as double,
-      feelsLike: null == feelsLike
+              as double?,
+      feelsLike: freezed == feelsLike
           ? _value.feelsLike
           : feelsLike // ignore: cast_nullable_to_non_nullable
-              as double,
-      pressure: null == pressure
+              as double?,
+      pressure: freezed == pressure
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
-              as int,
-      humidity: null == humidity
+              as int?,
+      humidity: freezed == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
-              as int,
-      dewPoint: null == dewPoint
+              as int?,
+      dewPoint: freezed == dewPoint
           ? _value.dewPoint
           : dewPoint // ignore: cast_nullable_to_non_nullable
-              as double,
-      uvi: null == uvi
+              as double?,
+      uvi: freezed == uvi
           ? _value.uvi
           : uvi // ignore: cast_nullable_to_non_nullable
-              as double,
-      clouds: null == clouds
+              as double?,
+      clouds: freezed == clouds
           ? _value.clouds
           : clouds // ignore: cast_nullable_to_non_nullable
-              as int,
-      visibility: null == visibility
+              as int?,
+      visibility: freezed == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as int,
-      windSpeed: null == windSpeed
+              as int?,
+      windSpeed: freezed == windSpeed
           ? _value.windSpeed
           : windSpeed // ignore: cast_nullable_to_non_nullable
-              as double,
-      windDeg: null == windDeg
+              as double?,
+      windDeg: freezed == windDeg
           ? _value.windDeg
           : windDeg // ignore: cast_nullable_to_non_nullable
-              as int,
-      windGust: null == windGust
+              as int?,
+      windGust: freezed == windGust
           ? _value.windGust
           : windGust // ignore: cast_nullable_to_non_nullable
-              as double,
-      weather: null == weather
+              as double?,
+      weather: freezed == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
-              as List<WeatherElement>,
+              as List<WeatherElement>?,
     ) as $Val);
   }
 }
@@ -408,21 +408,21 @@ abstract class _$$CurrentImplCopyWith<$Res> implements $CurrentCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int dt,
-      int sunrise,
-      int sunset,
-      double temp,
-      double feelsLike,
-      int pressure,
-      int humidity,
-      double dewPoint,
-      double uvi,
-      int clouds,
-      int visibility,
-      double windSpeed,
-      int windDeg,
-      double windGust,
-      List<WeatherElement> weather});
+      {int? dt,
+      int? sunrise,
+      int? sunset,
+      double? temp,
+      double? feelsLike,
+      int? pressure,
+      int? humidity,
+      double? dewPoint,
+      double? uvi,
+      int? clouds,
+      int? visibility,
+      double? windSpeed,
+      int? windDeg,
+      double? windGust,
+      List<WeatherElement>? weather});
 }
 
 /// @nodoc
@@ -436,83 +436,83 @@ class __$$CurrentImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dt = null,
-    Object? sunrise = null,
-    Object? sunset = null,
-    Object? temp = null,
-    Object? feelsLike = null,
-    Object? pressure = null,
-    Object? humidity = null,
-    Object? dewPoint = null,
-    Object? uvi = null,
-    Object? clouds = null,
-    Object? visibility = null,
-    Object? windSpeed = null,
-    Object? windDeg = null,
-    Object? windGust = null,
-    Object? weather = null,
+    Object? dt = freezed,
+    Object? sunrise = freezed,
+    Object? sunset = freezed,
+    Object? temp = freezed,
+    Object? feelsLike = freezed,
+    Object? pressure = freezed,
+    Object? humidity = freezed,
+    Object? dewPoint = freezed,
+    Object? uvi = freezed,
+    Object? clouds = freezed,
+    Object? visibility = freezed,
+    Object? windSpeed = freezed,
+    Object? windDeg = freezed,
+    Object? windGust = freezed,
+    Object? weather = freezed,
   }) {
     return _then(_$CurrentImpl(
-      dt: null == dt
+      dt: freezed == dt
           ? _value.dt
           : dt // ignore: cast_nullable_to_non_nullable
-              as int,
-      sunrise: null == sunrise
+              as int?,
+      sunrise: freezed == sunrise
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
-              as int,
-      sunset: null == sunset
+              as int?,
+      sunset: freezed == sunset
           ? _value.sunset
           : sunset // ignore: cast_nullable_to_non_nullable
-              as int,
-      temp: null == temp
+              as int?,
+      temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
-              as double,
-      feelsLike: null == feelsLike
+              as double?,
+      feelsLike: freezed == feelsLike
           ? _value.feelsLike
           : feelsLike // ignore: cast_nullable_to_non_nullable
-              as double,
-      pressure: null == pressure
+              as double?,
+      pressure: freezed == pressure
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
-              as int,
-      humidity: null == humidity
+              as int?,
+      humidity: freezed == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
-              as int,
-      dewPoint: null == dewPoint
+              as int?,
+      dewPoint: freezed == dewPoint
           ? _value.dewPoint
           : dewPoint // ignore: cast_nullable_to_non_nullable
-              as double,
-      uvi: null == uvi
+              as double?,
+      uvi: freezed == uvi
           ? _value.uvi
           : uvi // ignore: cast_nullable_to_non_nullable
-              as double,
-      clouds: null == clouds
+              as double?,
+      clouds: freezed == clouds
           ? _value.clouds
           : clouds // ignore: cast_nullable_to_non_nullable
-              as int,
-      visibility: null == visibility
+              as int?,
+      visibility: freezed == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as int,
-      windSpeed: null == windSpeed
+              as int?,
+      windSpeed: freezed == windSpeed
           ? _value.windSpeed
           : windSpeed // ignore: cast_nullable_to_non_nullable
-              as double,
-      windDeg: null == windDeg
+              as double?,
+      windDeg: freezed == windDeg
           ? _value.windDeg
           : windDeg // ignore: cast_nullable_to_non_nullable
-              as int,
-      windGust: null == windGust
+              as int?,
+      windGust: freezed == windGust
           ? _value.windGust
           : windGust // ignore: cast_nullable_to_non_nullable
-              as double,
-      weather: null == weather
+              as double?,
+      weather: freezed == weather
           ? _value._weather
           : weather // ignore: cast_nullable_to_non_nullable
-              as List<WeatherElement>,
+              as List<WeatherElement>?,
     ));
   }
 }
@@ -521,60 +521,62 @@ class __$$CurrentImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CurrentImpl implements _Current {
   const _$CurrentImpl(
-      {required this.dt,
-      required this.sunrise,
-      required this.sunset,
-      required this.temp,
-      required this.feelsLike,
-      required this.pressure,
-      required this.humidity,
-      required this.dewPoint,
-      required this.uvi,
-      required this.clouds,
-      required this.visibility,
-      required this.windSpeed,
-      required this.windDeg,
-      required this.windGust,
-      required final List<WeatherElement> weather})
+      {this.dt,
+      this.sunrise,
+      this.sunset,
+      this.temp,
+      this.feelsLike,
+      this.pressure,
+      this.humidity,
+      this.dewPoint,
+      this.uvi,
+      this.clouds,
+      this.visibility,
+      this.windSpeed,
+      this.windDeg,
+      this.windGust,
+      final List<WeatherElement>? weather})
       : _weather = weather;
 
   factory _$CurrentImpl.fromJson(Map<String, dynamic> json) =>
       _$$CurrentImplFromJson(json);
 
   @override
-  final int dt;
+  final int? dt;
   @override
-  final int sunrise;
+  final int? sunrise;
   @override
-  final int sunset;
+  final int? sunset;
   @override
-  final double temp;
+  final double? temp;
   @override
-  final double feelsLike;
+  final double? feelsLike;
   @override
-  final int pressure;
+  final int? pressure;
   @override
-  final int humidity;
+  final int? humidity;
   @override
-  final double dewPoint;
+  final double? dewPoint;
   @override
-  final double uvi;
+  final double? uvi;
   @override
-  final int clouds;
+  final int? clouds;
   @override
-  final int visibility;
+  final int? visibility;
   @override
-  final double windSpeed;
+  final double? windSpeed;
   @override
-  final int windDeg;
+  final int? windDeg;
   @override
-  final double windGust;
-  final List<WeatherElement> _weather;
+  final double? windGust;
+  final List<WeatherElement>? _weather;
   @override
-  List<WeatherElement> get weather {
+  List<WeatherElement>? get weather {
+    final value = _weather;
+    if (value == null) return null;
     if (_weather is EqualUnmodifiableListView) return _weather;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_weather);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -647,54 +649,54 @@ class _$CurrentImpl implements _Current {
 
 abstract class _Current implements Current {
   const factory _Current(
-      {required final int dt,
-      required final int sunrise,
-      required final int sunset,
-      required final double temp,
-      required final double feelsLike,
-      required final int pressure,
-      required final int humidity,
-      required final double dewPoint,
-      required final double uvi,
-      required final int clouds,
-      required final int visibility,
-      required final double windSpeed,
-      required final int windDeg,
-      required final double windGust,
-      required final List<WeatherElement> weather}) = _$CurrentImpl;
+      {final int? dt,
+      final int? sunrise,
+      final int? sunset,
+      final double? temp,
+      final double? feelsLike,
+      final int? pressure,
+      final int? humidity,
+      final double? dewPoint,
+      final double? uvi,
+      final int? clouds,
+      final int? visibility,
+      final double? windSpeed,
+      final int? windDeg,
+      final double? windGust,
+      final List<WeatherElement>? weather}) = _$CurrentImpl;
 
   factory _Current.fromJson(Map<String, dynamic> json) = _$CurrentImpl.fromJson;
 
   @override
-  int get dt;
+  int? get dt;
   @override
-  int get sunrise;
+  int? get sunrise;
   @override
-  int get sunset;
+  int? get sunset;
   @override
-  double get temp;
+  double? get temp;
   @override
-  double get feelsLike;
+  double? get feelsLike;
   @override
-  int get pressure;
+  int? get pressure;
   @override
-  int get humidity;
+  int? get humidity;
   @override
-  double get dewPoint;
+  double? get dewPoint;
   @override
-  double get uvi;
+  double? get uvi;
   @override
-  int get clouds;
+  int? get clouds;
   @override
-  int get visibility;
+  int? get visibility;
   @override
-  double get windSpeed;
+  double? get windSpeed;
   @override
-  int get windDeg;
+  int? get windDeg;
   @override
-  double get windGust;
+  double? get windGust;
   @override
-  List<WeatherElement> get weather;
+  List<WeatherElement>? get weather;
   @override
   @JsonKey(ignore: true)
   _$$CurrentImplCopyWith<_$CurrentImpl> get copyWith =>
@@ -707,10 +709,10 @@ WeatherElement _$WeatherElementFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WeatherElement {
-  int get id => throw _privateConstructorUsedError;
-  String get main => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get icon => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get main => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get icon => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -724,7 +726,7 @@ abstract class $WeatherElementCopyWith<$Res> {
           WeatherElement value, $Res Function(WeatherElement) then) =
       _$WeatherElementCopyWithImpl<$Res, WeatherElement>;
   @useResult
-  $Res call({int id, String main, String description, String icon});
+  $Res call({int? id, String? main, String? description, String? icon});
 }
 
 /// @nodoc
@@ -740,28 +742,28 @@ class _$WeatherElementCopyWithImpl<$Res, $Val extends WeatherElement>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? main = null,
-    Object? description = null,
-    Object? icon = null,
+    Object? id = freezed,
+    Object? main = freezed,
+    Object? description = freezed,
+    Object? icon = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      main: null == main
+              as int?,
+      main: freezed == main
           ? _value.main
           : main // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      icon: null == icon
+              as String?,
+      icon: freezed == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -774,7 +776,7 @@ abstract class _$$WeatherElementImplCopyWith<$Res>
       __$$WeatherElementImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String main, String description, String icon});
+  $Res call({int? id, String? main, String? description, String? icon});
 }
 
 /// @nodoc
@@ -788,28 +790,28 @@ class __$$WeatherElementImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? main = null,
-    Object? description = null,
-    Object? icon = null,
+    Object? id = freezed,
+    Object? main = freezed,
+    Object? description = freezed,
+    Object? icon = freezed,
   }) {
     return _then(_$WeatherElementImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      main: null == main
+              as int?,
+      main: freezed == main
           ? _value.main
           : main // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      icon: null == icon
+              as String?,
+      icon: freezed == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -817,23 +819,19 @@ class __$$WeatherElementImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$WeatherElementImpl implements _WeatherElement {
-  const _$WeatherElementImpl(
-      {required this.id,
-      required this.main,
-      required this.description,
-      required this.icon});
+  const _$WeatherElementImpl({this.id, this.main, this.description, this.icon});
 
   factory _$WeatherElementImpl.fromJson(Map<String, dynamic> json) =>
       _$$WeatherElementImplFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String main;
+  final String? main;
   @override
-  final String description;
+  final String? description;
   @override
-  final String icon;
+  final String? icon;
 
   @override
   String toString() {
@@ -873,22 +871,22 @@ class _$WeatherElementImpl implements _WeatherElement {
 
 abstract class _WeatherElement implements WeatherElement {
   const factory _WeatherElement(
-      {required final int id,
-      required final String main,
-      required final String description,
-      required final String icon}) = _$WeatherElementImpl;
+      {final int? id,
+      final String? main,
+      final String? description,
+      final String? icon}) = _$WeatherElementImpl;
 
   factory _WeatherElement.fromJson(Map<String, dynamic> json) =
       _$WeatherElementImpl.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
-  String get main;
+  String? get main;
   @override
-  String get description;
+  String? get description;
   @override
-  String get icon;
+  String? get icon;
   @override
   @JsonKey(ignore: true)
   _$$WeatherElementImplCopyWith<_$WeatherElementImpl> get copyWith =>
