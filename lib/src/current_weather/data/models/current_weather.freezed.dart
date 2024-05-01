@@ -226,6 +226,7 @@ class _$WeatherImpl implements _Weather {
       lat: lat!,
       cityName: timezone!, // Assume timezone is the city name
       temp: current!.temp!,
+      main: current!.weather![0].main!,
     );
   }
 }

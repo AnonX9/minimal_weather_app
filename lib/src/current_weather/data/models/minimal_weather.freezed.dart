@@ -24,6 +24,7 @@ mixin _$MinimalWeather {
   double get lat => throw _privateConstructorUsedError;
   String get cityName => throw _privateConstructorUsedError;
   double get temp => throw _privateConstructorUsedError;
+  String get main => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,8 @@ abstract class $MinimalWeatherCopyWith<$Res> {
           MinimalWeather value, $Res Function(MinimalWeather) then) =
       _$MinimalWeatherCopyWithImpl<$Res, MinimalWeather>;
   @useResult
-  $Res call({double lon, double lat, String cityName, double temp});
+  $Res call(
+      {double lon, double lat, String cityName, double temp, String main});
 }
 
 /// @nodoc
@@ -57,6 +59,7 @@ class _$MinimalWeatherCopyWithImpl<$Res, $Val extends MinimalWeather>
     Object? lat = null,
     Object? cityName = null,
     Object? temp = null,
+    Object? main = null,
   }) {
     return _then(_value.copyWith(
       lon: null == lon
@@ -75,6 +78,10 @@ class _$MinimalWeatherCopyWithImpl<$Res, $Val extends MinimalWeather>
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as double,
+      main: null == main
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -87,7 +94,8 @@ abstract class _$$MinimalWeatherImplCopyWith<$Res>
       __$$MinimalWeatherImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double lon, double lat, String cityName, double temp});
+  $Res call(
+      {double lon, double lat, String cityName, double temp, String main});
 }
 
 /// @nodoc
@@ -105,6 +113,7 @@ class __$$MinimalWeatherImplCopyWithImpl<$Res>
     Object? lat = null,
     Object? cityName = null,
     Object? temp = null,
+    Object? main = null,
   }) {
     return _then(_$MinimalWeatherImpl(
       lon: null == lon
@@ -123,6 +132,10 @@ class __$$MinimalWeatherImplCopyWithImpl<$Res>
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as double,
+      main: null == main
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -134,7 +147,8 @@ class _$MinimalWeatherImpl implements _MinimalWeather {
       {required this.lon,
       required this.lat,
       required this.cityName,
-      required this.temp});
+      required this.temp,
+      required this.main});
 
   factory _$MinimalWeatherImpl.fromJson(Map<String, dynamic> json) =>
       _$$MinimalWeatherImplFromJson(json);
@@ -147,10 +161,12 @@ class _$MinimalWeatherImpl implements _MinimalWeather {
   final String cityName;
   @override
   final double temp;
+  @override
+  final String main;
 
   @override
   String toString() {
-    return 'MinimalWeather(lon: $lon, lat: $lat, cityName: $cityName, temp: $temp)';
+    return 'MinimalWeather(lon: $lon, lat: $lat, cityName: $cityName, temp: $temp, main: $main)';
   }
 
   @override
@@ -162,12 +178,13 @@ class _$MinimalWeatherImpl implements _MinimalWeather {
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.cityName, cityName) ||
                 other.cityName == cityName) &&
-            (identical(other.temp, temp) || other.temp == temp));
+            (identical(other.temp, temp) || other.temp == temp) &&
+            (identical(other.main, main) || other.main == main));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, lon, lat, cityName, temp);
+  int get hashCode => Object.hash(runtimeType, lon, lat, cityName, temp, main);
 
   @JsonKey(ignore: true)
   @override
@@ -189,7 +206,8 @@ abstract class _MinimalWeather implements MinimalWeather {
       {required final double lon,
       required final double lat,
       required final String cityName,
-      required final double temp}) = _$MinimalWeatherImpl;
+      required final double temp,
+      required final String main}) = _$MinimalWeatherImpl;
 
   factory _MinimalWeather.fromJson(Map<String, dynamic> json) =
       _$MinimalWeatherImpl.fromJson;
@@ -202,6 +220,8 @@ abstract class _MinimalWeather implements MinimalWeather {
   String get cityName;
   @override
   double get temp;
+  @override
+  String get main;
   @override
   @JsonKey(ignore: true)
   _$$MinimalWeatherImplCopyWith<_$MinimalWeatherImpl> get copyWith =>

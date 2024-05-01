@@ -6,7 +6,7 @@ part of 'current_weather_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$currentWeatherHash() => r'580e87355247532a69f16e4adf245550d65a5f14';
+String _$currentWeatherHash() => r'37668418b036051849d89a6890eab607cea24cf0';
 
 /// See also [CurrentWeather].
 @ProviderFor(CurrentWeather)

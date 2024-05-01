@@ -10,6 +10,7 @@ class MinimalWeather with _$MinimalWeather {
     required double lat,
     required String cityName,
     required double temp,
+    required String main,
   }) = _MinimalWeather;
 
   factory MinimalWeather.fromJson(Map<String, dynamic> json) =>

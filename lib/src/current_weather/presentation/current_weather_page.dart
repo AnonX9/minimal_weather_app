@@ -26,7 +26,7 @@ class CurrentWeatherPage extends ConsumerWidget {
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {
                       return LoadingAnimationWidget.stretchedDots(
-                          color: Colors.black, size: 64);
+                          color: Colors.blue, size: 64);
                     } else {
                       var data = snapshot.data;
                       return Column(
@@ -36,7 +36,8 @@ class CurrentWeatherPage extends ConsumerWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 80),
                             child: LottieBuilder.asset(
-                                "assets/weather-sunny.json"),
+                              getWeatherAnimation(data.main.toLowerCase()),
+                            ),
                           ),
                           Text("${data.temp} °C", style: textStyle)
                         ],
@@ -50,5 +51,29 @@ class CurrentWeatherPage extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  getWeatherAnimation(String? condition) {
+    print("main : $condition");
+
+    if (condition == null) return 'assets/sunny.json';
+
+    switch (condition) {
+      case 'clouds':
+      case 'smoke':
+      case 'haze':
+      case 'dust':
+      case 'fog':
+        return 'assets/clouds.json';
+      case 'rain':
+      case 'drizzle':
+      case 'shower rain':
+        return 'assets/rain.json';
+      case 'thunderstorm':
+        return 'assets/thunderstorm.json';
+      case 'clear':
+      default:
+        return 'assets/sunny.json';
+    }
   }
 }

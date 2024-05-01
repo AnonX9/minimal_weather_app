@@ -12,6 +12,7 @@ _$MinimalWeatherImpl _$$MinimalWeatherImplFromJson(Map<String, dynamic> json) =>
       lat: (json['lat'] as num).toDouble(),
       cityName: json['cityName'] as String,
       temp: (json['temp'] as num).toDouble(),
+      main: json['main'] as String,
     );
 
 Map<String, dynamic> _$$MinimalWeatherImplToJson(
@@ -21,4 +22,5 @@ Map<String, dynamic> _$$MinimalWeatherImplToJson(
       'lat': instance.lat,
       'cityName': instance.cityName,
       'temp': instance.temp,
+      'main': instance.main,
     };
