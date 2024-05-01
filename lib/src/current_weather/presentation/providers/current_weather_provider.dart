@@ -13,7 +13,7 @@ part 'current_weather_provider.g.dart';
 class CurrentWeather extends _$CurrentWeather {
   @override
   Future<MinimalWeather> build() async {
-    Position position = await ref.watch(currentPositionProvider.future);
+    Position position = await ref.read(currentPositionProvider.future);
     List<Placemark> places =
         await placemarkFromCoordinates(position.latitude, position.longitude);
 
