@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:minimal_weather_app/src/current_weather/presentation/providers/current_weather_provider.dart';
 
@@ -24,7 +25,8 @@ class CurrentWeatherPage extends ConsumerWidget {
                   future: currentWeather,
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {
-                      return const CircularProgressIndicator();
+                      return LoadingAnimationWidget.stretchedDots(
+                          color: Colors.black, size: 64);
                     } else {
                       var data = snapshot.data;
                       return Column(
